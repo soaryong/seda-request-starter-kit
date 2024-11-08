@@ -16,7 +16,7 @@ async function main() {
             method: 'none'
         },
         oracleProgramId: process.env.ORACLE_PROGRAM_ID,
-        drInputs: Buffer.from('eth-usdc'),
+        drInputs: Buffer.from(process.env.RWA_PRODUCT_KEY),
         tallyInputs: Buffer.from([]),
         memo: Buffer.from(new Date().toISOString()),
     }, {});

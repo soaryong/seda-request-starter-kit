@@ -25,16 +25,8 @@ export function executionPhase(): void {
   // Log the asset pair being fetched as part of the Execution Standard Out.
   Console.log(`Fetching price for pair: ${drInputsRaw}`);
 
-  // Split the input string into symbolA and symbolB.
-  // Example: "ETH-USDC" will be split into "ETH" and "USDC".
-  const drInputs = drInputsRaw.split("-");
-  const symbolA = drInputs[0];
-  const symbolB = drInputs[1];
-
-  // Make an HTTP request to a price feed API to get the price for the symbol pair.
-  // The URL is dynamically constructed using the provided symbols (e.g., ETHUSDC).
   const response = httpFetch(
-    `https://api.binance.com/api/v3/ticker/price?symbol=${symbolA.toUpperCase()}${symbolB.toUpperCase()}`
+    `${process.env.RWA_PRODUCT_API_URL}/${drInputsRaw}`
   );
 
   // Check if the HTTP request was successfully fulfilled.
